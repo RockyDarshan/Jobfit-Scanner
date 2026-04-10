@@ -84,12 +84,70 @@ form {
     @apply flex flex-wrap max-md:flex-col max-md:gap-4 gap-6 items-start max-md:items-center w-full max-w-462.5 justify-evenly;
   }
 
+  .hero-section {
+    @apply py-20 px-4 max-w-7xl mx-auto;
+  }
+  .hero-content {
+    @apply flex flex-col lg:flex-row items-center justify-between gap-12;
+  }
+  .hero-text {
+    @apply flex-1 text-center lg:text-left;
+  }
+  .hero-title {
+    @apply text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight;
+  }
+  .hero-subtitle {
+    @apply text-xl text-gray-600 mb-8 max-w-2xl;
+  }
+  .hero-visual {
+    @apply flex-1 flex justify-center;
+  }
+  .hero-gif {
+    @apply w-80 h-80 object-contain rounded-2xl shadow-lg;
+  }
+
+  .resumes-section-container {
+    @apply py-16 px-4 max-w-7xl mx-auto;
+  }
+  .section-header {
+    @apply text-center mb-12;
+  }
+  .section-header h2 {
+    @apply text-3xl font-bold text-gray-900 mb-4;
+  }
+  .section-header p {
+    @apply text-lg text-gray-600;
+  }
+
+  .resumes-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 justify-items-center;
+  }
+
+  .empty-state {
+    @apply flex justify-center items-center py-20;
+  }
+  .empty-state-content {
+    @apply text-center max-w-md;
+  }
+  .empty-state-image {
+    @apply w-48 h-48 object-contain mb-8 opacity-70;
+  }
+  .empty-state-content h3 {
+    @apply text-2xl font-semibold text-gray-900 mb-4;
+  }
+  .empty-state-content p {
+    @apply text-gray-600 mb-8;
+  }
+  .upload-button {
+    @apply inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl;
+  }
+
   .resume-card {
-    @apply flex flex-col gap-8 h-140 w-87.5 lg:w-107.5 xl:w-122.5 bg-white rounded-2xl p-4;
+    @apply flex flex-col gap-6 bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 hover:border-gray-200;
   }
 
   .resume-card-header {
-    @apply flex flex-row gap-2 justify-between min-h-27.5 max-sm:flex-col items-center max-md:justify-center max-md:items-center;
+    @apply flex flex-row justify-between items-start gap-4;
   }
 
   .feedback-section {
