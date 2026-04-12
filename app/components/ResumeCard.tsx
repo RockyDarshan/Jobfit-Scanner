@@ -4,19 +4,7 @@ import {useEffect, useState} from "react";
 import {usePuterStore} from "~/lib/puter";
 
 const ResumeCard = ({ resume: { id, companyName, jobTitle, feedback, imagePath } }: { resume: Resume }) => {
-    const { fs } = usePuterStore();
-    const [resumeUrl, setResumeUrl] = useState('');
-
-    useEffect(() => {
-        const loadResume = async () => {
-            const blob = await fs.read(imagePath);
-            if(!blob) return;
-            let url = URL.createObjectURL(blob);
-            setResumeUrl(url);
-        }
-
-        loadResume();
-    }, [imagePath]);
+    const previewSrc = imagePath;
 
     return (
         <Link to={`/resume/${id}`} className="resume-card animate-in fade-in duration-1000 hover:scale-105 transition-transform">
@@ -30,17 +18,15 @@ const ResumeCard = ({ resume: { id, companyName, jobTitle, feedback, imagePath }
                     <ScoreCircle score={feedback.overallScore} />
                 </div>
             </div>
-            {resumeUrl && (
-                <div className="gradient-border animate-in fade-in duration-1000">
-                    <div className="w-full aspect-3/4 overflow-hidden rounded-xl">
-                        <img
-                            src={resumeUrl}
-                            alt="resume preview"
-                            className="w-full h-full object-cover object-top hover:scale-110 transition-transform duration-300"
-                        />
-                    </div>
+            <div className="gradient-border animate-in fade-in duration-1000">
+                <div className="w-full aspect-3/4 overflow-hidden rounded-xl">
+                    <img
+                        src={previewSrc}
+                        alt={companyName ? `${companyName} resume preview` : "resume preview"}
+                        className="w-full h-full object-cover object-top hover:scale-110 transition-transform duration-300"
+                    />
                 </div>
-                )}
+            </div>
         </Link>
     )
 }

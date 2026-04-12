@@ -81,6 +81,7 @@ const navigate = useNavigate();
    setStatusText('Redirecting to results page...');
    setIsProcessing(false);
    console.log("result",data)
+   navigate(`/resume/${uuid}`);
 
   }
 
