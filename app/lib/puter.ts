@@ -334,21 +334,24 @@ export const usePuterStore = create<PuterStore>((set, get) => {
       return;
     }
 
-    return puter.ai.chat([
-      {
-        role: "user",
-        content: [
-          {
-            type: "file",
-            puter_path: path,
-          },
-          {
-            type: "text",
-            text: message,
-          },
-        ],
-      },
-    ]) as Promise<AIResponse | undefined>;
+    return puter.ai.chat(
+      [
+        {
+          role: "user",
+          content: [
+            {
+              type: "file",
+              puter_path: path,
+            },
+            {
+              type: "text",
+              text: message,
+            },
+          ],
+        },
+      ],
+      { model: "openai/gpt-4o-mini" },
+    ) as Promise<AIResponse | undefined>;
   };
 
   const img2txt = async (image: string | File | Blob, testMode?: boolean) => {

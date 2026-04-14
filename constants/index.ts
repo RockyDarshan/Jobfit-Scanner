@@ -234,6 +234,8 @@ export const prepareInstructions = ({
 }) =>
   `You are an expert in ATS (Applicant Tracking System) and resume analysis.
   Please analyze and rate this resume and suggest how to improve it.
+  The resume file is attached to this message and must be analyzed as the primary source of information.
+  Do not ignore the attached resume file. Use it first, then compare it against the job title and job description.
   The rating can be low if the resume is bad.
   Be thorough and detailed. Don't be afraid to point out any mistakes or areas for improvement.
   If there is a lot to improve, don't hesitate to give low scores. This is to help the user to improve their resume.
